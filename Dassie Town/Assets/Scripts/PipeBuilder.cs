@@ -7,35 +7,44 @@ public class PipeBuilder : MonoBehaviour
     [SerializeField] GameObject pipeParent;
     [SerializeField] GameObject pipePrefab;
 
-    private void Update()
+    public int totalPipes;
+
+    private void Start()
     {
-        if (Input.GetMouseButtonDown(0))
+        GameManager.instance.pipesLeftText.text = totalPipes.ToString();
+    }
+
+    public void AddPipes(int i)
+    {
+        totalPipes += i;
+        GameManager.instance.pipesLeftText.text = totalPipes.ToString();
+    }
+
+    public void PlacePipe(RaycastHit2D hit, Vector3 mousePos)
+    {
+        if(totalPipes != 0)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0f;
-
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
             if (hit.collider != null)
             {
                 if (hit.collider.tag == "Ground")
                 {
+                    totalPipes--;
+                    GameManager.instance.pipesLeftText.text = totalPipes.ToString();
                     Instantiate(pipePrefab, tilemap.GetCellCenterLocal(tilemap.WorldToCell(mousePos)), Quaternion.identity, pipeParent.transform);
                 }
             }
-            
         }
+    }
 
-        if (Input.GetMouseButtonDown(1))
+    public void RemovePipe(RaycastHit2D hit, Vector3 mousePos)
+    {
+        if (hit.collider != null)
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if (hit.collider != null)
+            if (hit.collider.tag == "Pipe")
             {
-                if (hit.collider.tag == "Pipe")
-                {
-                    hit.collider.GetComponent<Pipe>().DestroyPipe();
-                }
+                totalPipes++;
+                GameManager.instance.pipesLeftText.text = totalPipes.ToString();
+                hit.collider.GetComponent<Pipe>().DestroyPipe();
             }
         }
     }

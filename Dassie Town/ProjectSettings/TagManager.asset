@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Source
   - Machine
+  - Pickup
+  - NPC
   layers:
   - Default
   - TransparentFX

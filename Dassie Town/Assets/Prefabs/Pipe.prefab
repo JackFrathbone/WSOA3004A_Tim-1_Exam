@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: ContactPointUp
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688678388940890340}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.366, y: 0.302, z: -0.020493003}
+  m_LocalPosition: {x: -0.28, y: 0.194, z: -0.020493003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6677700843566364841}
@@ -46,7 +46,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.05
 --- !u!1 &2959427182433250072
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ GameObject:
   m_Layer: 0
   m_Name: ContactPointRight
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -72,7 +72,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2959427182433250072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.407, y: 0.298, z: -0.020493003}
+  m_LocalPosition: {x: 0.29, y: 0.204, z: -0.020493003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6677700843566364841}
@@ -93,7 +93,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.05
 --- !u!1 &6677700843566364843
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,8 +250,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _connectedPipes: []
-  connectedSource: {fileID: 0}
-  currentFlow: 0
+  connectedSources: []
+  connectedMachines: []
+  sourceDirectlyConnected: 0
+  machineDirectlyConnected: 0
+  signalPassed: 0
 --- !u!1 &7622057881093353639
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +268,7 @@ GameObject:
   m_Layer: 0
   m_Name: ContactPointLeft
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -277,7 +280,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7622057881093353639}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.449, y: -0.293, z: -0.020493003}
+  m_LocalPosition: {x: -0.359, y: -0.162, z: -0.020493003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6677700843566364841}
@@ -298,7 +301,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.05
 --- !u!1 &8613947465898044140
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,7 +315,7 @@ GameObject:
   m_Layer: 0
   m_Name: ContactPointDown
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -324,7 +327,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8613947465898044140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.419, y: -0.268, z: -0.020493003}
+  m_LocalPosition: {x: 0.325, y: -0.172, z: -0.020493003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6677700843566364841}
@@ -345,4 +348,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.05

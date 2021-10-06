@@ -16,11 +16,8 @@ public class WaterSource : MonoBehaviour
         _flowAmountLabel.text = sourceFlowAmount.ToString();
     }
 
-    public void StartFlow()
+    public void ReceiveSignal(Machine mach)
     {
-        foreach (Pipe p in _connectedPipes)
-        {
-            p.RefreshPipeConnection(this);
-        }
+        mach.ReturnSignal(this);
     }
 }

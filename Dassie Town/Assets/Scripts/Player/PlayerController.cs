@@ -22,4 +22,14 @@ public class PlayerController : MonoBehaviour
         Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
         _rb.MovePosition(newPos);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Pickup")
+        {
+            GetComponentInParent<PipeBuilder>().AddPipes(collision.GetComponent<Pickup>().addedPipes);
+
+            Destroy(collision.gameObject);
+        }
+    }
 }

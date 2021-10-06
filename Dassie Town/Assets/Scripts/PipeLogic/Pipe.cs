@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,47 +7,13 @@ public class Pipe : MonoBehaviour
     public List<Pipe> _connectedPipes = new List<Pipe>();
 
     public List<WaterSource> connectedSources = new List<WaterSource>();
-    public int currentFlow;
 
     public List<Machine> connectedMachines = new List<Machine>();
 
     public bool sourceDirectlyConnected;
     public bool machineDirectlyConnected;
 
-    public bool cleared;
-
-    public void RefreshPipeConnection(WaterSource s)
-    {
-        connectedSources.Clear();
-        currentFlow = 0;
-
-        connectedSources.Add(s);
-        cleared = false;
-        GetTotalFlow();
-
-        foreach (Pipe p in _connectedPipes)
-        {
-            if (p.cleared)
-            {
-                foreach (WaterSource source in connectedSources)
-                {
-                    p.connectedSources.Add(source);
-                }
-                p.cleared = false;
-                p.GetTotalFlow();
-                p.RefreshPipeConnection(s);
-            }
-        }
-    }
-
-    private void GetTotalFlow()
-    {
-        currentFlow = 0;
-        foreach (WaterSource source in connectedSources)
-        {
-            currentFlow += source.sourceFlowAmount;
-        }
-    }
+    public bool signalPassed;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -54,20 +21,7 @@ public class Pipe : MonoBehaviour
         {
             Pipe addedPipe = collision.GetComponent<Pipe>();
             _connectedPipes.Add(addedPipe);
-
-            if (addedPipe.connectedSources.Count != 0)
-            {
-                foreach (WaterSource source in addedPipe.connectedSources)
-                {
-                    if (!connectedSources.Contains(source))
-                    {
-                        connectedSources.Add(source);
-                    }
-                }
-
-                cleared = false;
-                GetTotalFlow();
-            }
+            GameManager.instance.RefreshMachines();
         }
         else if (collision.tag == "Source")
         {
@@ -76,7 +30,6 @@ public class Pipe : MonoBehaviour
             {
                 connectedSources.Add(addedSource);
                 addedSource._connectedPipes.Add(this);
-                GetTotalFlow();
                 sourceDirectlyConnected = true;
             }
         }
@@ -89,7 +42,7 @@ public class Pipe : MonoBehaviour
                 connectedMachines.Add(addedMachine);
                 addedMachine._connectedPipes.Add(this);
                 machineDirectlyConnected = true;
-                addedMachine.RefreshFlow();
+                addedMachine.StartSignal();
             }
         }
     }
@@ -102,25 +55,24 @@ public class Pipe : MonoBehaviour
         }
     }
 
-    private void ClearNeighbourPipes()
+    public void PassSignal(Machine mach)
     {
-        foreach (Pipe p in _connectedPipes)
-        {
-            if (!p.cleared)
-            {
-                p.connectedSources.Clear();
-                p.currentFlow = 0;
-                p.cleared = true;
-                p.ClearNeighbourPipes();
-            }
-        }
+        signalPassed = true;
+
+        StartCoroutine(SignalWait(mach));
     }
 
     public void DestroyPipe()
     {
+        bool hasPipesConnected = false;
+
         foreach (Pipe p in _connectedPipes)
         {
-            p._connectedPipes.Remove(this);
+            if (p._connectedPipes.Contains(this))
+            {
+                p._connectedPipes.Remove(this);
+                hasPipesConnected = true;
+            }
         }
 
         foreach (WaterSource source in connectedSources)
@@ -139,13 +91,33 @@ public class Pipe : MonoBehaviour
             }
         }
 
-        ClearNeighbourPipes();
-
-        foreach (WaterSource source in connectedSources)
+        if (hasPipesConnected == true)
         {
-            source.StartFlow();
+            GameManager.instance.RefreshMachines();
         }
 
         Destroy(gameObject);
+    }
+
+    private IEnumerator SignalWait(Machine mach)
+    {
+        yield return new WaitForSeconds(0.1f);
+
+        foreach (Pipe pipe in _connectedPipes)
+        {
+            if (!pipe.signalPassed)
+            {
+                pipe.PassSignal(mach);
+            }
+        }
+
+        foreach (WaterSource source in connectedSources)
+        {
+            source.ReceiveSignal(mach);
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        signalPassed = false;
     }
 }

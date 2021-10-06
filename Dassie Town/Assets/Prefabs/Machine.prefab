@@ -256,7 +256,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 3625043607559282579, guid: d0008d998d7d23041bcefd63f33c673e, type: 3}
-  m_Color: {r: 0.62493086, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.4226308, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -291,14 +291,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.02734375, y: 0.25}
-      - {x: -0.5, y: 0.02734375}
-      - {x: -0.5, y: -0.015625}
-      - {x: -0.0703125, y: -0.25}
-      - {x: 0.02734375, y: -0.25}
-      - {x: 0.5, y: -0.02734375}
-      - {x: 0.5, y: 0.015625}
-      - {x: 0.0703125, y: 0.25}
+    - - {x: -0.013113655, y: 0.23418877}
+      - {x: -0.44940412, y: 0.017857015}
+      - {x: -0.45730966, y: -0.012462756}
+      - {x: 0.0008380115, y: -0.23735103}
+      - {x: 0.01943814, y: -0.20889083}
+      - {x: 0.45572856, y: -0.0036269166}
+      - {x: 0.43517396, y: 0.015625}
+      - {x: 0.032365564, y: 0.22786433}
 --- !u!60 &4548080292963997268
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -324,14 +324,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.02734375, y: 0.25}
-      - {x: -0.5, y: 0.02734375}
-      - {x: -0.5, y: -0.015625}
-      - {x: -0.0703125, y: -0.25}
-      - {x: 0.02734375, y: -0.25}
-      - {x: 0.5, y: -0.02734375}
-      - {x: 0.5, y: 0.015625}
-      - {x: 0.0703125, y: 0.25}
+    - - {x: -0.01627589, y: 0.23260766}
+      - {x: -0.44624183, y: 0.01943814}
+      - {x: -0.45098522, y: -0.009300511}
+      - {x: -0.0039053634, y: -0.23893213}
+      - {x: 0.03524936, y: -0.21995866}
+      - {x: 0.4414985, y: -0.01943814}
+      - {x: 0.4841888, y: -0.0017673438}
+      - {x: 0.008648731, y: 0.24209437}
 --- !u!1 &8270849799202138798
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,4 +378,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowInput: 0
+  flowRequired: 0
   _connectedPipes: []
+  connectedSources: []
+  machineEventPass:
+    m_PersistentCalls:
+      m_Calls: []
+  machineEventFail:
+    m_PersistentCalls:
+      m_Calls: []

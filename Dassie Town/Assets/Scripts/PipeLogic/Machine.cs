@@ -8,62 +8,74 @@ public class Machine : MonoBehaviour
 {
     public int flowInput;
     public int flowRequired;
-    public bool connected;
 
     private TextMeshPro _flowAmountLabel;
 
     public List<Pipe> _connectedPipes = new List<Pipe>();
 
-    public UnityEvent machineEvent;
+    public List<WaterSource> connectedSources = new List<WaterSource>();
+
+    public UnityEvent machineEventPass;
+    public UnityEvent machineEventFail;
 
     private void Start()
     {
         _flowAmountLabel = GetComponentInChildren<TextMeshPro>();
-        RefreshFlow();
+        GetCurrentFlow();
     }
 
     private void CheckCondition()
     {
-        if(flowInput >= flowRequired)
+        _flowAmountLabel.text = flowInput.ToString()+"/"+flowRequired.ToString();
+
+        if (flowInput >= flowRequired)
         {
-            machineEvent.Invoke();
+            machineEventPass.Invoke();
+        }
+        else
+        {
+            machineEventFail.Invoke();
         }
     }
 
-    public void RefreshFlow()
+    private void GetCurrentFlow()
     {
         flowInput = 0;
 
-        foreach (Pipe p in _connectedPipes)
+        foreach (WaterSource source in connectedSources)
         {
-            foreach (WaterSource source in p.connectedSources)
-            {
-                flowInput += source.sourceFlowAmount;
-            }
+            flowInput += source.sourceFlowAmount;
         }
 
-        if(flowInput == 0)
-        {
-            StartCoroutine(ReChecker());
-        }
-
-        _flowAmountLabel.text = flowInput.ToString();
         CheckCondition();
     }
 
-    //The collision with the machine happens before the pipes collide with each other, so they arent yet connected when the machine checks; This simply waits a bit and tries again
-    IEnumerator ReChecker()
+    public void StartSignal()
     {
-        yield return new WaitForSeconds(0.3f);
-        foreach (Pipe p in _connectedPipes)
+        connectedSources.Clear();
+        flowInput = 0;
+
+        foreach (Pipe pipe in _connectedPipes)
         {
-            foreach (WaterSource source in p.connectedSources)
-            {
-                flowInput += source.sourceFlowAmount;
-            }
+            pipe.PassSignal(this);
         }
 
-        _flowAmountLabel.text = flowInput.ToString();
-        CheckCondition();
+        StartCoroutine(WaitBeforeChangeFlow());
+    }
+
+    public void ReturnSignal(WaterSource source)
+    {
+        if (!connectedSources.Contains(source))
+        {
+            connectedSources.Add(source);
+        }
+
+        GetCurrentFlow();
+    }
+
+    private IEnumerator WaitBeforeChangeFlow()
+    {
+        yield return new WaitForSeconds(1.5f);
+        GetCurrentFlow();
     }
 }
