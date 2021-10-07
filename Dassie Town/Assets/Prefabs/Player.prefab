@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a853baed734eee94e9bfab20ae77ef2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disableInput: 0
+  clickDistanceLimit: 3
 --- !u!1 &825669290446103246
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,3 +198,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 3
+  freezeMovement: 0

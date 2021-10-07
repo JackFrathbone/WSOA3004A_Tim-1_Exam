@@ -6,47 +6,60 @@ public class PlayerInput : MonoBehaviour
 {
     private PipeBuilder _pipeBuilder;
 
+    public bool disableInput;
+
+    public float clickDistanceLimit;
+
+    private PlayerController playerController;
 
     private void Start()
     {
         _pipeBuilder = GetComponent<PipeBuilder>();
+        playerController = GetComponentInChildren<PlayerController>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (!disableInput)
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0f;
-
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if (hit.collider != null)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (hit.collider.tag == "Ground")
-                {
-                    _pipeBuilder.PlacePipe(hit, mousePos);
-                }
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0f;
 
-                else if (hit.collider.tag == "NPC")
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+                float mouseDistance = Vector3.Distance(mousePos, playerController.transform.position);
+
+                if (hit.collider != null && mouseDistance <= clickDistanceLimit)
                 {
-                    print("clicked npc");
+                    if (hit.collider.tag == "Ground")
+                    {
+                        _pipeBuilder.PlacePipe(hit, mousePos);
+                    }
+
+                    else if (hit.collider.tag == "NPC")
+                    {
+                        hit.collider.GetComponent<CharacteDialogueController>().ActivateDialogue();
+                    }
                 }
             }
-        }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0f;
-
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if (hit.collider != null)
+            if (Input.GetMouseButtonDown(1))
             {
-                if (hit.collider.tag == "Pipe")
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0f;
+
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+                float mouseDistance = Vector3.Distance(mousePos, playerController.transform.position);
+
+                if (hit.collider != null && mouseDistance <= clickDistanceLimit)
                 {
-                    _pipeBuilder.RemovePipe(hit, mousePos);
+                    if (hit.collider.tag == "Pipe")
+                    {
+                        _pipeBuilder.RemovePipe(hit, mousePos);
+                    }
                 }
             }
         }

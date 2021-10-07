@@ -18,6 +18,8 @@ public class Machine : MonoBehaviour
     public UnityEvent machineEventPass;
     public UnityEvent machineEventFail;
 
+    public bool conditionMet;
+
     private void Start()
     {
         _flowAmountLabel = GetComponentInChildren<TextMeshPro>();
@@ -30,10 +32,12 @@ public class Machine : MonoBehaviour
 
         if (flowInput >= flowRequired)
         {
+            conditionMet = true;
             machineEventPass.Invoke();
         }
         else
         {
+            conditionMet = false;
             machineEventFail.Invoke();
         }
     }
@@ -75,7 +79,7 @@ public class Machine : MonoBehaviour
 
     private IEnumerator WaitBeforeChangeFlow()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         GetCurrentFlow();
     }
 }

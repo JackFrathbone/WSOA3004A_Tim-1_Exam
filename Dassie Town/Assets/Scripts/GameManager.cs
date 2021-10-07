@@ -9,6 +9,9 @@ public class GameManager : Singleton<GameManager>
 
     public TextMeshProUGUI pipesLeftText;
 
+    [SerializeField] PlayerController playerController;
+    [SerializeField] PlayerInput playerInput;
+
     private void Start()
     {
         //Creates a list of machines in the level
@@ -36,5 +39,17 @@ public class GameManager : Singleton<GameManager>
         {
             Application.Quit();
         }
+    }
+
+    public void PauseGame()
+    {
+        playerController.freezeMovement = true;
+        playerInput.disableInput = true;
+    }
+
+    public void UnPauseGame()
+    {
+        playerController.freezeMovement = false;
+        playerInput.disableInput = false;
     }
 }
