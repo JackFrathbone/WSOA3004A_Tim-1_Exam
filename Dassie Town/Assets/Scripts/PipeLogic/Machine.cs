@@ -20,6 +20,8 @@ public class Machine : MonoBehaviour
 
     public bool conditionMet;
 
+    private Coroutine currentCoroutine;
+
     private void Start()
     {
         _flowAmountLabel = GetComponentInChildren<TextMeshPro>();
@@ -28,8 +30,9 @@ public class Machine : MonoBehaviour
 
     private void CheckCondition()
     {
-        _flowAmountLabel.text = flowInput.ToString()+"/"+flowRequired.ToString();
+        _flowAmountLabel.text = flowInput.ToString() + "/" + flowRequired.ToString();
 
+        //If flow is correct, then run the scripted event/or run an event if flow isnt correct ie open and close doors depending on machine state
         if (flowInput >= flowRequired)
         {
             conditionMet = true;
@@ -64,7 +67,11 @@ public class Machine : MonoBehaviour
             pipe.PassSignal(this);
         }
 
-        StartCoroutine(WaitBeforeChangeFlow());
+        if (currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+        }
+        currentCoroutine = StartCoroutine(WaitBeforeChangeFlow());
     }
 
     public void ReturnSignal(WaterSource source)
