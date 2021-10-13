@@ -6,6 +6,7 @@ public class DialogueManager : Singleton<DialogueManager>
 {
     [SerializeField] GameObject dialogueVisuals;
     [SerializeField] TextMeshProUGUI dialogueText;
+    [SerializeField] TextMeshProUGUI characterNameLabel;
 
     private CharacterDialogue currentDialogue;
     private int onDialogue;
@@ -20,19 +21,21 @@ public class DialogueManager : Singleton<DialogueManager>
         dialogueVisuals.SetActive(false);
     }
 
-    public void StartGreeting(string greeting)
+    public void StartGreeting(string greeting, string characterName)
     {
         EnableVisuals();
         dialogueText.text = greeting;
+        characterNameLabel.text = characterName;
 
         GameManager.instance.PauseGame();
     }
 
-    public void StartDialogue(CharacterDialogue dialogue)
+    public void StartDialogue(CharacterDialogue dialogue, string characterName)
     {
         EnableVisuals();
         onDialogue = 0;
         currentDialogue = dialogue;
+        characterNameLabel.text = characterName;
 
         dialogueText.text = currentDialogue.sentences[onDialogue];
 

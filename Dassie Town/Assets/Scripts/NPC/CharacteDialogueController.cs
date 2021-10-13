@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class CharacteDialogueController : MonoBehaviour
 {
+    [Header("Character Info")]
+    public string characterName;
+
     [Header("Dialogue")]
     public List<CharacterDialogue> dialogues;
 
@@ -18,7 +21,7 @@ public class CharacteDialogueController : MonoBehaviour
             {
                 if (!dialogue.checkMachines)
                 {
-                    DialogueManager.instance.StartDialogue(dialogue);
+                    DialogueManager.instance.StartDialogue(dialogue, characterName);
                     return;
                 }
                 else if (dialogue.checkMachines)
@@ -35,13 +38,13 @@ public class CharacteDialogueController : MonoBehaviour
 
                     if (metConditions == true)
                     {
-                        DialogueManager.instance.StartDialogue(dialogue);
+                        DialogueManager.instance.StartDialogue(dialogue, characterName);
                         return;
                     }
                 }
             }
         }
 
-        DialogueManager.instance.StartGreeting(greeting);
+        DialogueManager.instance.StartGreeting(greeting, characterName);
     }
 }

@@ -19,6 +19,10 @@ public class Machine : MonoBehaviour
     public UnityEvent machineEventFail;
 
     public bool conditionMet;
+    public SpriteRenderer sprite;
+    public Sprite originalVisual;
+    public Sprite conditionMetVisual;
+
 
     private Coroutine currentCoroutine;
 
@@ -37,11 +41,17 @@ public class Machine : MonoBehaviour
         {
             conditionMet = true;
             machineEventPass.Invoke();
+
+            if(conditionMetVisual != null)
+            {
+                sprite.sprite = conditionMetVisual;
+            }
         }
         else
         {
             conditionMet = false;
             machineEventFail.Invoke();
+            sprite.sprite = originalVisual;
         }
     }
 
