@@ -11,7 +11,7 @@ public class Machine : MonoBehaviour
 
     private TextMeshPro _flowAmountLabel;
 
-    public List<Pipe> _connectedPipes = new List<Pipe>();
+    public List<Pipe> connectedPipes = new List<Pipe>();
 
     public List<WaterSource> connectedSources = new List<WaterSource>();
 
@@ -72,7 +72,7 @@ public class Machine : MonoBehaviour
         connectedSources.Clear();
         flowInput = 0;
 
-        foreach (Pipe pipe in _connectedPipes)
+        foreach (Pipe pipe in connectedPipes)
         {
             pipe.PassSignal(this);
         }

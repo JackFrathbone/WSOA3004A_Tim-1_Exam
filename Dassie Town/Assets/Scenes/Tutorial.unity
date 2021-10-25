@@ -3015,16 +3015,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -14, y: -9, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -10, y: -9, z: 0}
     second:
       serializedVersion: 2
@@ -4185,7 +4175,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: dab1006e48c2cc04a887744e27ca644b, type: 2}
   - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: a01af03c4da19e34890b14862e1ce530, type: 2}
-  - m_RefCount: 17
+  - m_RefCount: 16
     m_Data: {fileID: 11400000, guid: dc3858b8c4b51a449b1215b736771564, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 80
@@ -4196,10 +4186,10 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: f7dec43d274e7c648bb0654f83e3dacf, type: 3}
   - m_RefCount: 7
     m_Data: {fileID: 21300000, guid: 5132fb6ae5368944cbfae3d08ea60653, type: 3}
-  - m_RefCount: 17
+  - m_RefCount: 16
     m_Data: {fileID: 21300000, guid: 05ee31e7a2751214dbb440cf6a528f25, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 201
+  - m_RefCount: 200
     m_Data:
       e00: 1
       e01: 0
@@ -4218,7 +4208,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 201
+  - m_RefCount: 200
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -6663,11 +6653,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 825669288987592918, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.5
+      value: 5.125
       objectReference: {fileID: 0}
     - target: {fileID: 825669288987592918, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11
+      value: -10.9375
       objectReference: {fileID: 0}
     - target: {fileID: 825669288987592918, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: m_LocalPosition.z

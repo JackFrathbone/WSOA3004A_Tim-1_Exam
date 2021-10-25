@@ -40,7 +40,7 @@ public class Pipe : MonoBehaviour
             if (!connectedMachines.Contains(addedMachine))
             {
                 connectedMachines.Add(addedMachine);
-                addedMachine._connectedPipes.Add(this);
+                addedMachine.connectedPipes.Add(this);
                 machineDirectlyConnected = true;
                 addedMachine.StartSignal();
             }
@@ -85,9 +85,9 @@ public class Pipe : MonoBehaviour
 
         foreach (Machine mach in connectedMachines)
         {
-            if (mach._connectedPipes.Contains(this))
+            if (mach.connectedPipes.Contains(this))
             {
-                mach._connectedPipes.Remove(this);
+                mach.connectedPipes.Remove(this);
             }
         }
 

@@ -8,7 +8,7 @@ public class PlayerInput : MonoBehaviour
 
     public bool disableInput;
 
-    public float clickDistanceLimit;
+    [SerializeField] float clickDistanceLimit;
 
     private PlayerController playerController;
 
