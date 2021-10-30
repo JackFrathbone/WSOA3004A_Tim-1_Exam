@@ -22,7 +22,7 @@ public class PlayerInput : MonoBehaviour
     {
         if (!disableInput)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0))
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePos.z = 0f;
@@ -45,7 +45,7 @@ public class PlayerInput : MonoBehaviour
                 }
             }
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButton(1))
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 mousePos.z = 0f;

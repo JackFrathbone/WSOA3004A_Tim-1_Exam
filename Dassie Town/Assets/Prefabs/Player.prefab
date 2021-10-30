@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disableInput: 0
-  clickDistanceLimit: 5
+  clickDistanceLimit: 100
 --- !u!1 &825669290446103246
 GameObject:
   m_ObjectHideFlags: 0

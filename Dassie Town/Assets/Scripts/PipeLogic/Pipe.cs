@@ -15,13 +15,14 @@ public class Pipe : MonoBehaviour
 
     public bool signalPassed;
 
+    [SerializeField] GameObject waterFlowVisual;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Pipe")
         {
             Pipe addedPipe = collision.GetComponent<Pipe>();
             _connectedPipes.Add(addedPipe);
-            GameManager.instance.RefreshMachines();
         }
         else if (collision.tag == "Source")
         {
@@ -42,7 +43,7 @@ public class Pipe : MonoBehaviour
                 connectedMachines.Add(addedMachine);
                 addedMachine.connectedPipes.Add(this);
                 machineDirectlyConnected = true;
-                addedMachine.StartSignal();
+                //addedMachine.StartSignal();
             }
         }
     }
@@ -93,7 +94,7 @@ public class Pipe : MonoBehaviour
 
         if (hasPipesConnected == true)
         {
-            GameManager.instance.RefreshMachines();
+            //GameManager.instance.RefreshMachines();
         }
 
         Destroy(gameObject);
@@ -101,7 +102,8 @@ public class Pipe : MonoBehaviour
 
     private IEnumerator SignalWait(Machine mach)
     {
-        yield return new WaitForSeconds(0.1f);
+        waterFlowVisual.SetActive(true);
+        yield return new WaitForSeconds(0.001f);
 
         foreach (Pipe pipe in _connectedPipes)
         {
@@ -109,6 +111,7 @@ public class Pipe : MonoBehaviour
             {
                 pipe.PassSignal(mach);
             }
+
         }
 
         foreach (WaterSource source in connectedSources)
@@ -116,8 +119,10 @@ public class Pipe : MonoBehaviour
             source.ReceiveSignal(mach);
         }
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.01f);
 
         signalPassed = false;
+
+        waterFlowVisual.SetActive(false);
     }
 }

@@ -42,13 +42,17 @@ public class Machine : MonoBehaviour
             conditionMet = true;
             machineEventPass.Invoke();
 
-            if(conditionMetVisual != null)
+            PumpCheck();
+
+            if (conditionMetVisual != null)
             {
                 sprite.sprite = conditionMetVisual;
             }
         }
         else
         {
+            PumpClear();
+
             conditionMet = false;
             machineEventFail.Invoke();
             sprite.sprite = originalVisual;
@@ -63,8 +67,24 @@ public class Machine : MonoBehaviour
         {
             flowInput += source.sourceFlowAmount;
         }
-
         CheckCondition();
+    }
+
+    //Checks if this machine is a pump, and then runs the pump scripts
+    private void PumpCheck()
+    {
+        if(GetComponent<PumpInput>() != null)
+        {
+            GetComponent<PumpInput>().SetPumpFlow(flowInput);
+        }
+    }
+
+    private void PumpClear()
+    {
+        if (GetComponent<PumpInput>() != null)
+        {
+            GetComponent<PumpInput>().SetPumpFlow(0);
+        }
     }
 
     public void StartSignal()
@@ -91,12 +111,12 @@ public class Machine : MonoBehaviour
             connectedSources.Add(source);
         }
 
-        GetCurrentFlow();
+        //GetCurrentFlow();
     }
 
     private IEnumerator WaitBeforeChangeFlow()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         GetCurrentFlow();
     }
 }

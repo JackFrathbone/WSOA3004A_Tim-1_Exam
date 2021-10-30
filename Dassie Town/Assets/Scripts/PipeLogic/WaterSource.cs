@@ -20,4 +20,12 @@ public class WaterSource : MonoBehaviour
     {
         mach.ReturnSignal(this);
     }
+
+    public void SetFlow(int flow)
+    {
+        sourceFlowAmount = flow;
+
+        _flowAmountLabel = GetComponentInChildren<TextMeshPro>();
+        _flowAmountLabel.text = sourceFlowAmount.ToString();
+    }
 }

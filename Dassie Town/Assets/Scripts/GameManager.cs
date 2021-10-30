@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -17,20 +19,19 @@ public class GameManager : Singleton<GameManager>
         //Creates a list of machines in the level
         foreach (GameObject machineObject in GameObject.FindGameObjectsWithTag("Machine"))
         {
-            if(machineObject.GetComponent<Machine>() != null)
+            if (machineObject.GetComponent<Machine>() != null)
             {
                 machines.Add(machineObject.GetComponent<Machine>());
             }
         }
+
+        RefreshMachines();
     }
 
     //Refreshes the connection of all machines/pipes in the level
     public void RefreshMachines()
     {
-        foreach(Machine mach in machines)
-        {
-            mach.StartSignal();
-        }
+        StartCoroutine(MachineWait());
     }
 
     private void Update()
@@ -52,4 +53,22 @@ public class GameManager : Singleton<GameManager>
         playerController.freezeMovement = false;
         playerInput.disableInput = false;
     }
+
+    public void LoadScene(int i)
+    {
+        SceneManager.LoadScene(i);
+    }
+
+    private IEnumerator MachineWait()
+    {
+        foreach (Machine mach in machines)
+        {
+            mach.StartSignal();
+            yield return new WaitForSeconds(1f);
+        }
+
+
+        RefreshMachines();
+    }
+
 }
