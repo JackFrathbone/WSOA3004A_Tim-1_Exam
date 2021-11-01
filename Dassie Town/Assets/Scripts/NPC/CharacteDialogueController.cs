@@ -11,6 +11,7 @@ public class CharacteDialogueController : MonoBehaviour
 
     //For when there is no dialogue to run
     [Header("Generic Greeting")]
+    [TextArea(3, 10)]
     public string greeting;
 
     public void ActivateDialogue()

@@ -140,11 +140,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 67a4ed0e239951a4ca7a97b487d896c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.01
+      value: -39
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 67a4ed0e239951a4ca7a97b487d896c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.71
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 67a4ed0e239951a4ca7a97b487d896c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -201,11 +201,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 67a4ed0e239951a4ca7a97b487d896c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.52
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 67a4ed0e239951a4ca7a97b487d896c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.59
+      value: 9.75
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 67a4ed0e239951a4ca7a97b487d896c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -371,11 +371,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 78f2936b8e9f4a54686a5af7c400f5a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -30.76
+      value: -30.5
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 78f2936b8e9f4a54686a5af7c400f5a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.78
+      value: -1.75
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 78f2936b8e9f4a54686a5af7c400f5a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -460,11 +460,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 78f2936b8e9f4a54686a5af7c400f5a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 78f2936b8e9f4a54686a5af7c400f5a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.57
+      value: 6.75
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 78f2936b8e9f4a54686a5af7c400f5a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -970,11 +970,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 67a4ed0e239951a4ca7a97b487d896c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.42
+      value: -17.5
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 67a4ed0e239951a4ca7a97b487d896c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.02
+      value: 4.25
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 67a4ed0e239951a4ca7a97b487d896c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -93270,6 +93270,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: greeting
+      value: Keep up the good work! Feel free to chat to my secretary if you have
+        any questions.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: characterName
       value: Mayor le Roux
       objectReference: {fileID: 0}
@@ -93282,12 +93287,24 @@ PrefabInstance:
       value: CheckMachine
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[2].topic
+      value: CheckMachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[0].runOnce
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].runOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[2].runOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].checkMachines
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[0].sentences.Array.size
@@ -93295,6 +93312,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].sentences.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[2].sentences.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
@@ -93350,11 +93371,32 @@ PrefabInstance:
         Town!
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[2].sentences.Array.data[0]
+      value: "Dankie baie! \nIt looks so much better already!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[2].sentences.Array.data[1]
+      value: Well then, you can go off and help the rest of our townsfolk now.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[2].sentences.Array.data[2]
+      value: Feel free to explore and get to know everyone. Enjoy your time in Dassie
+        Town!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].machinesToCheck.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[2].machinesToCheck.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].machinesToCheck.Array.data[0]
+      value: 
+      objectReference: {fileID: 169631339}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[2].machinesToCheck.Array.data[0]
       value: 
       objectReference: {fileID: 169631339}
     m_RemovedComponents: []
@@ -107661,11 +107703,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 78f2936b8e9f4a54686a5af7c400f5a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.9
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 78f2936b8e9f4a54686a5af7c400f5a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.12
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 78f2936b8e9f4a54686a5af7c400f5a3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -108003,6 +108045,11 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: greeting
+      value: Don't you have something to do? You should talk to one of the farmers,
+        they need water more than most.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: characterName
       value: Anneline Coetzee
       objectReference: {fileID: 0}
@@ -108011,11 +108058,23 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[0].topic
+      value: Introduction
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[0].runOnce
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].runOnce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[0].sentences.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].sentences.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
@@ -108033,6 +108092,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[0].sentences.Array.data[3]
+      value: 'Please do have a look around?
+
+        They''re in a little box and
+        you are definitely going to need them. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].sentences.Array.data[0]
+      value: "Oh, hello. \nI'm the mayor's secretary, Anneline.\nNice to meet you!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].sentences.Array.data[1]
+      value: Aitog! The mayor asked me to get you some extra pipes, but I've been
+        so busy running around that I can't remember where I left them.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].sentences.Array.data[2]
+      value: They should be somewhere around here...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].sentences.Array.data[3]
       value: 'Please do have a look around?
 
         They''re in a little box and
@@ -108082,11 +108161,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: fb3db4ca25ed31a4a9362322631f93a9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.96
+      value: -27
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: fb3db4ca25ed31a4a9362322631f93a9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.27
+      value: 7.25
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: fb3db4ca25ed31a4a9362322631f93a9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -108148,11 +108227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 2d96b124f840bd44c8d909e46a57aa78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.05
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 2d96b124f840bd44c8d909e46a57aa78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.96
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 8270849799202138796, guid: 2d96b124f840bd44c8d909e46a57aa78, type: 3}
       propertyPath: m_LocalPosition.z

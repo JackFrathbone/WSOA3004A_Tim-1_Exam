@@ -37,7 +37,7 @@ public class Machine : MonoBehaviour
         _flowAmountLabel.text = flowInput.ToString() + "/" + flowRequired.ToString();
 
         //If flow is correct, then run the scripted event/or run an event if flow isnt correct ie open and close doors depending on machine state
-        if (flowInput >= flowRequired)
+        if (flowInput == flowRequired)
         {
             conditionMet = true;
             machineEventPass.Invoke();
