@@ -94,7 +94,7 @@ public class Machine : MonoBehaviour
 
         foreach (Pipe pipe in connectedPipes)
         {
-            pipe.PassSignal(this);
+            //pipe.PassSignal(this);
         }
 
         if (currentCoroutine != null)

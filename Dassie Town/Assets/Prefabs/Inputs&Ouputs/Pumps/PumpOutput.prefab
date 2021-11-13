@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &458208329297982678
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4444227385373627296}
-  m_Layer: 0
-  m_Name: Colliders
-  m_TagString: Source
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4444227385373627296
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 458208329297982678}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 7900840245762239824}
-  m_Father: {fileID: 8270849799202138796}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6312850693318803824
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +14,7 @@ GameObject:
   - component: {fileID: 5800803280041306585}
   m_Layer: 0
   m_Name: AmountText
-  m_TagString: Source
+  m_TagString: Output
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,7 +194,7 @@ GameObject:
   - component: {fileID: 3416722014993944955}
   m_Layer: 0
   m_Name: Visual
-  m_TagString: Source
+  m_TagString: Output
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -307,7 +276,7 @@ GameObject:
   - component: {fileID: 4524378701836029957}
   m_Layer: 0
   m_Name: WaterBase
-  m_TagString: Source
+  m_TagString: Output
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,11 +355,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8270849799202138796}
-  - component: {fileID: 3981729452249028355}
+  - component: {fileID: 3754347401270894091}
+  - component: {fileID: 6710309239473528638}
   - component: {fileID: 5932038993559766309}
   m_Layer: 0
   m_Name: PumpOutput
-  m_TagString: Source
+  m_TagString: Output
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,12 +378,12 @@ Transform:
   m_Children:
   - {fileID: 3385195434175146029}
   - {fileID: 3613490460615384698}
-  - {fileID: 4444227385373627296}
+  - {fileID: 7900840245762239824}
   - {fileID: 8844898333958305979}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3981729452249028355
+--- !u!114 &3754347401270894091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -422,7 +392,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 8270849799202138798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e695765d6082c9c4eac7da00f4e9f959, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c059a8d0d37933418fe59515e0eae48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterOutput: {fileID: 6710309239473528638}
+--- !u!114 &6710309239473528638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270849799202138798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22edc73c9e856c14c98d7f235952c8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sourceFlowAmount: 0
@@ -439,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 739adbcefa91d0647af5f1472b62b660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outputSourceParent: {fileID: 3981729452249028355}
+  outputSourceParent: {fileID: 6710309239473528638}
 --- !u!1 &8633629073372302606
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +436,7 @@ GameObject:
   - component: {fileID: 7360683641849969023}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Source
+  m_TagString: Output
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -466,11 +449,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8633629073372302606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4444227385373627296}
-  m_RootOrder: 0
+  m_Father: {fileID: 8270849799202138796}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &2493559544037728593
 PolygonCollider2D:

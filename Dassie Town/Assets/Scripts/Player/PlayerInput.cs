@@ -9,6 +9,7 @@ public class PlayerInput : MonoBehaviour
     public bool disableInput;
 
     [SerializeField] float clickDistanceLimit;
+    [SerializeField] GameObject pipePreview;
 
     private PlayerController playerController;
 
@@ -22,6 +23,30 @@ public class PlayerInput : MonoBehaviour
     {
         if (!disableInput)
         {
+            if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0f;
+
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+                float mouseDistance = Vector3.Distance(mousePos, playerController.transform.position);
+
+                if (hit.collider != null && mouseDistance <= clickDistanceLimit)
+                {
+                    if (hit.collider.tag == "Ground")
+                    {
+                        pipePreview.SetActive(true);
+                        pipePreview.transform.position = _pipeBuilder.tilemap.GetCellCenterLocal(_pipeBuilder.tilemap.WorldToCell(mousePos));
+                    }
+                    else
+                    {
+                        pipePreview.SetActive(false);
+                    }
+                }
+            }
+
+
             if (Input.GetMouseButton(0))
             {
                 Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -37,8 +62,21 @@ public class PlayerInput : MonoBehaviour
                     {
                         _pipeBuilder.PlacePipe(hit, mousePos);
                     }
+                }
+            }
 
-                    else if (hit.collider.tag == "NPC")
+            if (Input.GetMouseButtonDown(0))
+            {
+                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePos.z = 0f;
+
+                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+                float mouseDistance = Vector3.Distance(mousePos, playerController.transform.position);
+
+                if (hit.collider != null && mouseDistance <= clickDistanceLimit)
+                {
+                    if (hit.collider.tag == "NPC")
                     {
                         hit.collider.GetComponent<CharacteDialogueController>().ActivateDialogue();
                     }

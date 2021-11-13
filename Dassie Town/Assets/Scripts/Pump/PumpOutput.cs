@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PumpOutput : MonoBehaviour
 {
-    [SerializeField] WaterSource outputSourceParent;
+    [SerializeField] OutputMain outputSourceParent;
 
     public void SetPumpOutput(int currentflow)
     {

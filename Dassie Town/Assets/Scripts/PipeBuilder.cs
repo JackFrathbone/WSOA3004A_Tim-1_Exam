@@ -3,7 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class PipeBuilder : MonoBehaviour
 {
-    [SerializeField] Tilemap tilemap;
+    public Tilemap tilemap;
     [SerializeField] GameObject pipeParent;
     [SerializeField] GameObject pipePrefab;
 

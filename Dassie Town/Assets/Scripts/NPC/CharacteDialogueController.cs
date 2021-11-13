@@ -20,18 +20,18 @@ public class CharacteDialogueController : MonoBehaviour
         {
             if (dialogue.runOnce && !dialogue.hasRun || !dialogue.runOnce)
             {
-                if (!dialogue.checkMachines)
+                if (!dialogue.checkInputs)
                 {
                     DialogueManager.instance.StartDialogue(dialogue, characterName);
                     return;
                 }
-                else if (dialogue.checkMachines)
+                else if (dialogue.checkInputs)
                 {
                     bool metConditions = true;
 
-                    foreach (Machine mach in dialogue.machinesToCheck)
+                    foreach (InputMain input in dialogue.inputsToCheck)
                     {
-                        if (!mach.conditionMet)
+                        if (!input.conditionMet)
                         {
                             metConditions = false;
                         }

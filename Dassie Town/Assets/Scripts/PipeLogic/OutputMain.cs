@@ -2,7 +2,7 @@ using TMPro;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterSource : MonoBehaviour
+public class OutputMain : MonoBehaviour
 {
     public int sourceFlowAmount;
 
@@ -16,9 +16,9 @@ public class WaterSource : MonoBehaviour
         _flowAmountLabel.text = sourceFlowAmount.ToString();
     }
 
-    public void ReceiveSignal(Machine mach)
+    public void ReceiveSignal(InputMain input)
     {
-        mach.ReturnSignal(this);
+        input.ReturnSignal(this);
     }
 
     public void SetFlow(int flow)

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     //List of all machines in order to refresh the pipe network
-    private List<Machine> machines = new List<Machine>();
+    private List<InputMain> inputs = new List<InputMain>();
 
     public TextMeshProUGUI pipesLeftText;
 
@@ -16,22 +16,25 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        //Creates a list of machines in the level
-        foreach (GameObject machineObject in GameObject.FindGameObjectsWithTag("Machine"))
+        //Creates a list of inputs in the level
+        foreach (GameObject inputObject in GameObject.FindGameObjectsWithTag("Input"))
         {
-            if (machineObject.GetComponent<Machine>() != null)
+            if (inputObject.GetComponent<InputInlet>() != null)
             {
-                machines.Add(machineObject.GetComponent<Machine>());
+                if(!inputs.Contains(inputObject.GetComponent<InputInlet>().masterInput))
+                {
+                    inputs.Add(inputObject.GetComponent<InputInlet>().masterInput);
+                }
             }
         }
 
-        RefreshMachines();
+        RefreshInputs();
     }
 
     //Refreshes the connection of all machines/pipes in the level
-    public void RefreshMachines()
+    public void RefreshInputs()
     {
-        StartCoroutine(MachineWait());
+        StartCoroutine(InputWait());
     }
 
     private void Update()
@@ -59,16 +62,19 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(i);
     }
 
-    private IEnumerator MachineWait()
+    private IEnumerator InputWait()
     {
-        foreach (Machine mach in machines)
+        if(inputs.Count > 0)
         {
-            mach.StartSignal();
-            yield return new WaitForSeconds(1f);
+            foreach (InputMain input in inputs)
+            {
+                input.StartSignal();
+                yield return new WaitForSeconds(1f);
+            }
+
+
+            RefreshInputs();
         }
-
-
-        RefreshMachines();
     }
 
 }

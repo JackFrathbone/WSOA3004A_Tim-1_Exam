@@ -6,9 +6,9 @@ public class Pipe : MonoBehaviour
 {
     public List<Pipe> _connectedPipes = new List<Pipe>();
 
-    public List<WaterSource> connectedSources = new List<WaterSource>();
+    public List<OutputMain> connectedOutputs = new List<OutputMain>();
 
-    public List<Machine> connectedMachines = new List<Machine>();
+    public List<InputMain> connectedInputs = new List<InputMain>();
 
     public bool sourceDirectlyConnected;
     public bool machineDirectlyConnected;
@@ -24,24 +24,28 @@ public class Pipe : MonoBehaviour
             Pipe addedPipe = collision.GetComponent<Pipe>();
             _connectedPipes.Add(addedPipe);
         }
-        else if (collision.tag == "Source")
+
+        else if (collision.tag == "Output")
         {
-            WaterSource addedSource = collision.GetComponentInParent<WaterSource>();
-            if (!connectedSources.Contains(addedSource))
+            OutputMain addedOutput = collision.GetComponentInParent<OutputOutlet>().masterOutput;
+
+            if (!connectedOutputs.Contains(addedOutput))
             {
-                connectedSources.Add(addedSource);
-                addedSource._connectedPipes.Add(this);
+                connectedOutputs.Add(addedOutput);
+                addedOutput._connectedPipes.Add(this);
                 sourceDirectlyConnected = true;
             }
         }
 
-        else if (collision.tag == "Machine")
+        else if (collision.tag == "Input")
         {
-            Machine addedMachine = collision.GetComponentInParent<Machine>();
-            if (!connectedMachines.Contains(addedMachine))
+            //Finds the connected input through the inlet
+            InputMain addedInput = collision.GetComponentInParent<InputInlet>().masterInput;
+
+            if (!connectedInputs.Contains(addedInput))
             {
-                connectedMachines.Add(addedMachine);
-                addedMachine.connectedPipes.Add(this);
+                connectedInputs.Add(addedInput);
+                addedInput.connectedPipes.Add(this);
                 machineDirectlyConnected = true;
                 //addedMachine.StartSignal();
             }
@@ -56,11 +60,11 @@ public class Pipe : MonoBehaviour
         }
     }
 
-    public void PassSignal(Machine mach)
+    public void PassSignal(InputMain input)
     {
         signalPassed = true;
 
-        StartCoroutine(SignalWait(mach));
+        StartCoroutine(SignalWait(input));
     }
 
     public void DestroyPipe()
@@ -76,19 +80,19 @@ public class Pipe : MonoBehaviour
             }
         }
 
-        foreach (WaterSource source in connectedSources)
+        foreach (OutputMain output in connectedOutputs)
         {
-            if (source._connectedPipes.Contains(this))
+            if (output._connectedPipes.Contains(this))
             {
-                source._connectedPipes.Remove(this);
+                output._connectedPipes.Remove(this);
             }
         }
 
-        foreach (Machine mach in connectedMachines)
+        foreach (InputMain input in connectedInputs)
         {
-            if (mach.connectedPipes.Contains(this))
+            if (input.connectedPipes.Contains(this))
             {
-                mach.connectedPipes.Remove(this);
+                input.connectedPipes.Remove(this);
             }
         }
 
@@ -100,7 +104,7 @@ public class Pipe : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private IEnumerator SignalWait(Machine mach)
+    private IEnumerator SignalWait(InputMain input)
     {
         waterFlowVisual.SetActive(true);
         yield return new WaitForSeconds(0.001f);
@@ -109,14 +113,14 @@ public class Pipe : MonoBehaviour
         {
             if (!pipe.signalPassed)
             {
-                pipe.PassSignal(mach);
+                pipe.PassSignal(input);
             }
 
         }
 
-        foreach (WaterSource source in connectedSources)
+        foreach (OutputMain output in connectedOutputs)
         {
-            source.ReceiveSignal(mach);
+            output.ReceiveSignal(input);
         }
 
         yield return new WaitForSeconds(0.01f);

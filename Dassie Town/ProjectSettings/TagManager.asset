@@ -10,6 +10,8 @@ TagManager:
   - Machine
   - Pickup
   - NPC
+  - Input
+  - Output
   layers:
   - Default
   - TransparentFX

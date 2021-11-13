@@ -230,14 +230,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.02734375, y: 0.25}
-      - {x: -0.5, y: 0.02734375}
-      - {x: -0.5, y: -0.015625}
-      - {x: -0.0703125, y: -0.25}
-      - {x: 0.02734375, y: -0.25}
-      - {x: 0.5, y: -0.02734375}
-      - {x: 0.5, y: 0.015625}
-      - {x: 0.0703125, y: 0.25}
+    - - {x: -0.03233128, y: 0.23474403}
+      - {x: -0.46841425, y: 0.016119063}
+      - {x: -0.4699805, y: -0.015886039}
+      - {x: -0.03085082, y: -0.23571214}
+      - {x: 0.030745622, y: -0.23775327}
+      - {x: 0.46881372, y: -0.015942318}
+      - {x: 0.4694844, y: 0.015289661}
+      - {x: 0.030999016, y: 0.23445064}
 --- !u!114 &3225658618929603368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,8 +251,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _connectedPipes: []
-  connectedSources: []
-  connectedMachines: []
+  connectedOutputs: []
+  connectedInputs: []
   sourceDirectlyConnected: 0
   machineDirectlyConnected: 0
   signalPassed: 0

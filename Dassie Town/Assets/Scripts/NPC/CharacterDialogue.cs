@@ -12,8 +12,8 @@ public class CharacterDialogue
     public string[] sentences;
 
     [Header("Conditionals")]
-    public bool checkMachines;
-    public List<Machine> machinesToCheck;
+    public bool checkInputs;
+    public List<InputMain> inputsToCheck;
 
     [Header("Events to Run on Finish")]
     public UnityEvent dialogueEvent;
