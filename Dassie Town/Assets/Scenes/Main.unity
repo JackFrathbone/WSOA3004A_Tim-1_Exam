@@ -94366,6 +94366,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].checkInputs
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].checkMachines
       value: 1
       objectReference: {fileID: 0}
@@ -94463,6 +94467,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1542100151}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].inputsToCheckFail.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].inputsToCheckPass.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].machinesToCheck.Array.data[0]
       value: 
       objectReference: {fileID: 0}
@@ -94470,6 +94482,14 @@ PrefabInstance:
       propertyPath: dialogues.Array.data[2].machinesToCheck.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].inputsToCheckFail.Array.data[0]
+      value: 
+      objectReference: {fileID: 1777233795}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].inputsToCheckPass.Array.data[0]
+      value: 
+      objectReference: {fileID: 1542100151}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
 --- !u!4 &1591016413 stripped

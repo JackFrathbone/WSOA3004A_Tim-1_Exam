@@ -29,9 +29,17 @@ public class CharacteDialogueController : MonoBehaviour
                 {
                     bool metConditions = true;
 
-                    foreach (InputMain input in dialogue.inputsToCheck)
+                    foreach (InputMain input in dialogue.inputsToCheckPass)
                     {
                         if (!input.conditionMet)
+                        {
+                            metConditions = false;
+                        }
+                    }
+
+                    foreach (InputMain input in dialogue.inputsToCheckFail)
+                    {
+                        if (input.conditionMet)
                         {
                             metConditions = false;
                         }

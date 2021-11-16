@@ -13,7 +13,8 @@ public class CharacterDialogue
 
     [Header("Conditionals")]
     public bool checkInputs;
-    public List<InputMain> inputsToCheck;
+    public List<InputMain> inputsToCheckPass;
+    public List<InputMain> inputsToCheckFail;
 
     [Header("Events to Run on Finish")]
     public UnityEvent dialogueEvent;

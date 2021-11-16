@@ -29,6 +29,8 @@ public class GameManager : Singleton<GameManager>
         }
 
         RefreshInputs();
+
+        PauseGame();
     }
 
     //Refreshes the connection of all machines/pipes in the level
