@@ -14,6 +14,10 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] PlayerController playerController;
     [SerializeField] PlayerInput playerInput;
 
+    [SerializeField] GameObject pauseMenu;
+
+    private bool gamePaused;
+
     private void Start()
     {
         //Creates a list of inputs in the level
@@ -43,18 +47,24 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            if (!gamePaused)
+            {
+                pauseMenu.SetActive(true);
+                PauseGame();
+            }
         }
     }
 
     public void PauseGame()
     {
+        gamePaused = true;
         playerController.freezeMovement = true;
         playerInput.disableInput = true;
     }
 
     public void UnPauseGame()
     {
+        gamePaused = false;
         playerController.freezeMovement = false;
         playerInput.disableInput = false;
     }

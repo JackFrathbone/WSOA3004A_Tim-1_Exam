@@ -64,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   disableInput: 0
   clickDistanceLimit: 100
+  pipePreview: {fileID: 0}
 --- !u!1 &825669290446103246
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +244,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.86666673, g: 0.7803922, b: 0.6784314, a: 0}
+  m_BackGroundColor: {r: 0.86666673, g: 0.7803922, b: 0.6784314, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

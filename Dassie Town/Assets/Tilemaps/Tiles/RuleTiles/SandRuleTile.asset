@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6f3fbb560bd6041a202ea918fa4f23, type: 3}
+  m_Name: SandRuleTile
+  m_EditorClassIdentifier: 
+  m_DefaultSprite: {fileID: 21300000, guid: dc8bfbdac0bb9fd419a1c3d87ac20362, type: 3}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 2
+  m_TilingRules:
+  - m_Id: 0
+    m_Sprites:
+    - {fileID: -8095486474206197790, guid: 470b5af29072b674787c5d4bc405b69e, type: 3}
+    - {fileID: 8073483248002355840, guid: 470b5af29072b674787c5d4bc405b69e, type: 3}
+    - {fileID: 2953687551984712522, guid: 470b5af29072b674787c5d4bc405b69e, type: 3}
+    - {fileID: -3075472573002918600, guid: 470b5af29072b674787c5d4bc405b69e, type: 3}
+    - {fileID: -6798518186432209579, guid: 470b5af29072b674787c5d4bc405b69e, type: 3}
+    - {fileID: 2283827482880640087, guid: 470b5af29072b674787c5d4bc405b69e, type: 3}
+    - {fileID: -214222897351473913, guid: 470b5af29072b674787c5d4bc405b69e, type: 3}
+    - {fileID: -2628885917863336290, guid: 470b5af29072b674787c5d4bc405b69e, type: 3}
+    - {fileID: 925147183940743469, guid: 695cae9c644fc2a4b89097466a69f2ee, type: 3}
+    - {fileID: -9096075729921268543, guid: 695cae9c644fc2a4b89097466a69f2ee, type: 3}
+    - {fileID: -698127821031263096, guid: 695cae9c644fc2a4b89097466a69f2ee, type: 3}
+    - {fileID: -3553283870587523128, guid: 695cae9c644fc2a4b89097466a69f2ee, type: 3}
+    - {fileID: 1186171681924283911, guid: 695cae9c644fc2a4b89097466a69f2ee, type: 3}
+    - {fileID: 7459883750491111529, guid: 695cae9c644fc2a4b89097466a69f2ee, type: 3}
+    m_GameObject: {fileID: 0}
+    m_MinAnimationSpeed: 1
+    m_MaxAnimationSpeed: 1
+    m_PerlinScale: 0.5
+    m_Output: 1
+    m_ColliderType: 2
+    m_RandomTransform: 0
+    m_Neighbors: 
+    m_NeighborPositions:
+    - {x: -1, y: 1, z: 0}
+    - {x: 0, y: 1, z: 0}
+    - {x: 1, y: 1, z: 0}
+    - {x: -1, y: 0, z: 0}
+    - {x: 1, y: 0, z: 0}
+    - {x: -1, y: -1, z: 0}
+    - {x: 0, y: -1, z: 0}
+    - {x: 1, y: -1, z: 0}
+    m_RuleTransform: 0
