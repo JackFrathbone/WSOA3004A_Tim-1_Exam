@@ -21,12 +21,17 @@ public class InputMain : MonoBehaviour
     public InputVisual inputVisual;
     public bool conditionMet;
 
-    private Coroutine currentCoroutine;
+    private Coroutine _currentCoroutine;
 
     private void Start()
     {
         _flowAmountLabel = GetComponentInChildren<TextMeshPro>();
         GetCurrentFlow();
+    }
+
+    public void AddInputToPriorityList()
+    {
+        GameManager.instance.inputPriority = this;
     }
 
     private void CheckCondition()
@@ -101,11 +106,11 @@ public class InputMain : MonoBehaviour
             pipe.PassSignal(this);
         }
 
-        if (currentCoroutine != null)
+        if (_currentCoroutine != null)
         {
-            StopCoroutine(currentCoroutine);
+            StopCoroutine(_currentCoroutine);
         }
-        currentCoroutine = StartCoroutine(WaitBeforeChangeFlow());
+        _currentCoroutine = StartCoroutine(WaitBeforeChangeFlow());
     }
 
     public void ReturnSignal(OutputMain output)

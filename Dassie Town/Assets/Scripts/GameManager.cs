@@ -8,6 +8,7 @@ public class GameManager : Singleton<GameManager>
 {
     //List of all machines in order to refresh the pipe network
     private List<InputMain> inputs = new List<InputMain>();
+    public InputMain inputPriority;
 
     public TextMeshProUGUI pipesLeftText;
 
@@ -76,17 +77,25 @@ public class GameManager : Singleton<GameManager>
 
     private IEnumerator InputWait()
     {
-        if(inputs.Count > 0)
+        if (inputs.Count > 0)
         {
             foreach (InputMain input in inputs)
             {
+                if(inputPriority != null)
+                {
+                    inputPriority.StartSignal();
+                    yield return new WaitForSeconds(0.5f);
+                    inputPriority = null;
+                }
+
                 input.StartSignal();
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
             }
-
-
-            RefreshInputs();
         }
+
+        RefreshInputs();
+
+        yield return new WaitForSeconds(0.5f);
     }
 
 }

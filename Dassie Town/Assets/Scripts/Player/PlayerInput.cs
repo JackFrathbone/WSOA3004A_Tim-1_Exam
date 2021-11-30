@@ -23,15 +23,15 @@ public class PlayerInput : MonoBehaviour
     {
         if (!disableInput)
         {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f;
+
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            float mouseDistance = Vector3.Distance(mousePos, playerController.transform.position);
+
             if (!Input.GetMouseButton(0) && !Input.GetMouseButton(1))
             {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0f;
-
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-                float mouseDistance = Vector3.Distance(mousePos, playerController.transform.position);
-
                 if (hit.collider != null && mouseDistance <= clickDistanceLimit)
                 {
                     if (hit.collider.tag == "Ground")
@@ -49,13 +49,6 @@ public class PlayerInput : MonoBehaviour
 
             if (Input.GetMouseButton(0))
             {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0f;
-
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-                float mouseDistance = Vector3.Distance(mousePos, playerController.transform.position);
-
                 if (hit.collider != null && mouseDistance <= clickDistanceLimit)
                 {
                     if (hit.collider.tag == "Ground")
@@ -67,13 +60,6 @@ public class PlayerInput : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0f;
-
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-                float mouseDistance = Vector3.Distance(mousePos, playerController.transform.position);
-
                 if (hit.collider != null && mouseDistance <= clickDistanceLimit)
                 {
                     if (hit.collider.tag == "NPC")
@@ -85,13 +71,6 @@ public class PlayerInput : MonoBehaviour
 
             if (Input.GetMouseButton(1))
             {
-                Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                mousePos.z = 0f;
-
-                RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-                float mouseDistance = Vector3.Distance(mousePos, playerController.transform.position);
-
                 if (hit.collider != null && mouseDistance <= clickDistanceLimit)
                 {
                     if (hit.collider.tag == "Pipe")
