@@ -8002,6 +8002,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[0].checkInputs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[0].sentences.Array.size
       value: 12
       objectReference: {fileID: 0}
@@ -85173,7 +85177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].checkInputs
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].checkMachines
@@ -85749,7 +85753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].checkInputs
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].checkMachines
@@ -87260,6 +87264,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].runOnce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
+      propertyPath: dialogues.Array.data[1].checkInputs
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
@@ -89636,7 +89644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].checkInputs
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].checkMachines
@@ -116744,7 +116752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].checkInputs
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5001444571136929969, guid: 4e8455b64bf8bf3459f01f8844314830, type: 3}
       propertyPath: dialogues.Array.data[1].checkMachines
