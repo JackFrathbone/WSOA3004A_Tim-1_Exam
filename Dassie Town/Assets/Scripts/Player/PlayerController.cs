@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     public bool freezeMovement;
 
+    [SerializeField] AudioSource _audioSource;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -62,6 +64,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Pickup")
         {
+            _audioSource.Play();
+
             GetComponentInParent<PipeBuilder>().AddPipes(collision.GetComponent<Pickup>().addedPipes);
 
             Destroy(collision.gameObject);
