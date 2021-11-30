@@ -41,6 +41,7 @@ public class Pipe : MonoBehaviour
         {
             //Finds the connected input through the inlet
             InputMain addedInput = collision.GetComponentInParent<InputInlet>().masterInput;
+            addedInput.AddInputToPriorityList();
 
             if (!connectedInputs.Contains(addedInput))
             {

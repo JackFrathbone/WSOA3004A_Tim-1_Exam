@@ -9,8 +9,14 @@ public class PipeBuilder : MonoBehaviour
 
     public int totalPipes;
 
+    private AudioSource audioSource;
+    [SerializeField] AudioClip placeSound;
+
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = placeSound;
+
         GameManager.instance.pipesLeftText.text = totalPipes.ToString();
     }
 
@@ -31,6 +37,13 @@ public class PipeBuilder : MonoBehaviour
                     totalPipes--;
                     GameManager.instance.pipesLeftText.text = totalPipes.ToString();
                     Instantiate(pipePrefab, tilemap.GetCellCenterLocal(tilemap.WorldToCell(mousePos)), Quaternion.identity, pipeParent.transform);
+
+                    if (!audioSource.isPlaying)
+                    {
+                        audioSource.pitch = 1f;
+                        audioSource.Play();
+                    }
+                
                 }
             }
         }
@@ -45,6 +58,11 @@ public class PipeBuilder : MonoBehaviour
                 totalPipes++;
                 GameManager.instance.pipesLeftText.text = totalPipes.ToString();
                 hit.collider.GetComponent<Pipe>().DestroyPipe();
+                if (!audioSource.isPlaying)
+                {
+                    audioSource.pitch = 0.5f;
+                    audioSource.Play();
+                }
             }
         }
     }

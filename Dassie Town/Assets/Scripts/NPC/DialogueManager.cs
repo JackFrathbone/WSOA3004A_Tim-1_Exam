@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using System.Collections;
 
 public class DialogueManager : Singleton<DialogueManager>
 {
@@ -44,9 +45,9 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void NextDialogue()
     {
-        if(currentDialogue != null)
+        if (currentDialogue != null)
         {
-            if (onDialogue >= currentDialogue.sentences.Length -1)
+            if (onDialogue >= currentDialogue.sentences.Length - 1)
             {
                 currentDialogue.dialogueEvent.Invoke();
                 currentDialogue.hasRun = true;
@@ -68,6 +69,8 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         currentDialogue = null;
         DisableVisuals();
+
+        StopAllCoroutines();
 
         GameManager.instance.UnPauseGame();
     }
