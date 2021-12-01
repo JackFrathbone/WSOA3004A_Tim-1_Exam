@@ -56,6 +56,8 @@ MonoBehaviour:
       m_Calls: []
   inputVisual: {fileID: 0}
   conditionMet: 0
+  waterCheckSound: {fileID: 8300000, guid: 3d1d4cebce83f624dae095305876045a, type: 3}
+  waterPassSound: {fileID: 8300000, guid: ba8c1abd8caa9db46b97921e49437276, type: 3}
 --- !u!1 &3175996260707718888
 GameObject:
   m_ObjectHideFlags: 0

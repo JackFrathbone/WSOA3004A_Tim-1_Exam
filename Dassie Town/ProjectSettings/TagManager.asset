@@ -12,6 +12,7 @@ TagManager:
   - NPC
   - Input
   - Output
+  - SoundPlayer
   layers:
   - Default
   - TransparentFX

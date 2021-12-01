@@ -10,6 +10,11 @@ public class Pipe : MonoBehaviour
 
     public List<InputMain> connectedInputs = new List<InputMain>();
 
+    public SpriteRenderer spriteRenderer;
+    public Sprite pipeLeft, pipeRight, pipe4Way, pipeCornerUpLeftUpRight, pipeCornerDownLeftDownRight, pipeCornerUpLeftDownLeft, pipeCornerUpRightDownRight;
+
+    public bool pipeUpLeftCheck, pipeDownLeftCheck, pipeUpRightCheck, pipeDownRightCheck;
+
     public bool sourceDirectlyConnected;
     public bool machineDirectlyConnected;
 
@@ -23,6 +28,25 @@ public class Pipe : MonoBehaviour
         {
             Pipe addedPipe = collision.GetComponent<Pipe>();
             _connectedPipes.Add(addedPipe);
+
+            if(collision.transform.position.x < transform.position.x && collision.transform.position.y > transform.position.y)
+            {
+                pipeUpLeftCheck = true;
+            }
+            else if (collision.transform.position.x < transform.position.x && collision.transform.position.y < transform.position.y)
+            {
+                pipeDownLeftCheck = true;
+            }
+            else if (collision.transform.position.x > transform.position.x && collision.transform.position.y > transform.position.y)
+            {
+                pipeUpRightCheck = true;
+            }
+            else if (collision.transform.position.x > transform.position.x && collision.transform.position.y < transform.position.y)
+            {
+                pipeDownRightCheck = true;
+            }
+
+            UpdatePipeVisual();
         }
 
         else if (collision.tag == "Output")
@@ -34,6 +58,23 @@ public class Pipe : MonoBehaviour
                 connectedOutputs.Add(addedOutput);
                 addedOutput._connectedPipes.Add(this);
                 sourceDirectlyConnected = true;
+
+                if (collision.transform.position.x < transform.position.x && collision.transform.position.y > transform.position.y)
+                {
+                    pipeUpLeftCheck = true;
+                }
+                else if (collision.transform.position.x < transform.position.x && collision.transform.position.y < transform.position.y)
+                {
+                    pipeDownLeftCheck = true;
+                }
+                else if (collision.transform.position.x > transform.position.x && collision.transform.position.y > transform.position.y)
+                {
+                    pipeUpRightCheck = true;
+                }
+                else if (collision.transform.position.x > transform.position.x && collision.transform.position.y < transform.position.y)
+                {
+                    pipeDownRightCheck = true;
+                }
             }
         }
 
@@ -48,7 +89,23 @@ public class Pipe : MonoBehaviour
                 connectedInputs.Add(addedInput);
                 addedInput.connectedPipes.Add(this);
                 machineDirectlyConnected = true;
-                //addedMachine.StartSignal();
+
+                if (collision.transform.position.x < transform.position.x && collision.transform.position.y > transform.position.y)
+                {
+                    pipeUpLeftCheck = true;
+                }
+                else if (collision.transform.position.x < transform.position.x && collision.transform.position.y < transform.position.y)
+                {
+                    pipeDownLeftCheck = true;
+                }
+                else if (collision.transform.position.x > transform.position.x && collision.transform.position.y > transform.position.y)
+                {
+                    pipeUpRightCheck = true;
+                }
+                else if (collision.transform.position.x > transform.position.x && collision.transform.position.y < transform.position.y)
+                {
+                    pipeDownRightCheck = true;
+                }
             }
         }
     }
@@ -93,6 +150,7 @@ public class Pipe : MonoBehaviour
         {
             if (input.connectedPipes.Contains(this))
             {
+                input.AddInputToPriorityList();
                 input.connectedPipes.Remove(this);
             }
         }
@@ -103,6 +161,54 @@ public class Pipe : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private void UpdatePipeVisual()
+    {
+        if(pipeUpLeftCheck == true && pipeDownLeftCheck == false && pipeUpRightCheck == false && pipeDownRightCheck == true)
+        {
+            spriteRenderer.sprite = pipeRight;
+        }
+        else if (pipeUpLeftCheck == false && pipeDownLeftCheck == true && pipeUpRightCheck == true && pipeDownRightCheck == false)
+        {
+            spriteRenderer.sprite = pipeLeft;
+        }
+        else if (pipeUpLeftCheck == true && pipeDownLeftCheck == false && pipeUpRightCheck == false && pipeDownRightCheck == false)
+        {
+            spriteRenderer.sprite = pipeRight;
+        }
+        else if (pipeUpLeftCheck == false && pipeDownLeftCheck == true && pipeUpRightCheck == false && pipeDownRightCheck == false)
+        {
+            spriteRenderer.sprite = pipeLeft;
+        }
+        else if (pipeUpLeftCheck == false && pipeDownLeftCheck == false && pipeUpRightCheck == true && pipeDownRightCheck == false)
+        {
+            spriteRenderer.sprite = pipeLeft;
+        }
+        else if (pipeUpLeftCheck == false && pipeDownLeftCheck == false && pipeUpRightCheck == false && pipeDownRightCheck == true)
+        {
+            spriteRenderer.sprite = pipeRight;
+        }
+        else if (pipeUpLeftCheck == true && pipeDownLeftCheck == false && pipeUpRightCheck == true && pipeDownRightCheck == false)
+        {
+            spriteRenderer.sprite = pipeCornerUpLeftUpRight;
+        }
+        else if (pipeUpLeftCheck == false && pipeDownLeftCheck == true && pipeUpRightCheck == false && pipeDownRightCheck == true)
+        {
+            spriteRenderer.sprite = pipeCornerDownLeftDownRight;
+        }
+        else if (pipeUpLeftCheck == true && pipeDownLeftCheck == true && pipeUpRightCheck == false && pipeDownRightCheck == false)
+        {
+            spriteRenderer.sprite = pipeCornerUpLeftDownLeft;
+        }
+        else if (pipeUpLeftCheck == false && pipeDownLeftCheck == false && pipeUpRightCheck == true && pipeDownRightCheck == true)
+        {
+            spriteRenderer.sprite = pipeCornerUpRightDownRight;
+        }
+        else
+        {
+            spriteRenderer.sprite = pipe4Way;
+        }
     }
 
     private IEnumerator SignalWait(InputMain input)

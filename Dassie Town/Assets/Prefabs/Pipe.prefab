@@ -173,7 +173,7 @@ SpriteRenderer:
   m_SortingLayerID: -1572815591
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 3625043607559282579, guid: 34219c0ccbf89684cb869927330736f5, type: 3}
+  m_Sprite: {fileID: -7120470211546517138, guid: 198de6ba229e6a1458853a022e6045f8, type: 3}
   m_Color: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -253,6 +253,18 @@ MonoBehaviour:
   _connectedPipes: []
   connectedOutputs: []
   connectedInputs: []
+  spriteRenderer: {fileID: 6677700843566364842}
+  pipeLeft: {fileID: -7120470211546517138, guid: 198de6ba229e6a1458853a022e6045f8, type: 3}
+  pipeRight: {fileID: -5037433976659591163, guid: 198de6ba229e6a1458853a022e6045f8, type: 3}
+  pipe4Way: {fileID: 7233080662032893222, guid: 198de6ba229e6a1458853a022e6045f8, type: 3}
+  pipeCornerUpLeftUpRight: {fileID: 7503490461981356357, guid: 198de6ba229e6a1458853a022e6045f8, type: 3}
+  pipeCornerDownLeftDownRight: {fileID: -7314420628168653148, guid: 198de6ba229e6a1458853a022e6045f8, type: 3}
+  pipeCornerUpLeftDownLeft: {fileID: 6572595877285645917, guid: 198de6ba229e6a1458853a022e6045f8, type: 3}
+  pipeCornerUpRightDownRight: {fileID: 6261180780860757445, guid: 198de6ba229e6a1458853a022e6045f8, type: 3}
+  pipeUpLeftCheck: 0
+  pipeDownLeftCheck: 0
+  pipeUpRightCheck: 0
+  pipeDownRightCheck: 0
   sourceDirectlyConnected: 0
   machineDirectlyConnected: 0
   signalPassed: 0

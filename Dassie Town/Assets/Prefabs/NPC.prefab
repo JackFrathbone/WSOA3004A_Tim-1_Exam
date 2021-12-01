@@ -81,7 +81,8 @@ MonoBehaviour:
   characterName: 
   dialogues: []
   greeting: 
-  voice: {fileID: 8300000, guid: b93a3a31a7abd444194de8b9a558a7e7, type: 3}
+  bio: 
+  characterGuideEntry: {fileID: 6509182999367205858, guid: e46616154391b4b4e9da9e4200cc6452, type: 3}
 --- !u!1 &825669290446103246
 GameObject:
   m_ObjectHideFlags: 0

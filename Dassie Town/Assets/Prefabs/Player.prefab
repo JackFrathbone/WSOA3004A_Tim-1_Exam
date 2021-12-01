@@ -242,7 +242,7 @@ SpriteRenderer:
   m_SortingLayerID: -1572815591
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: fa2b296b5265c8f4f97eb98f10660f65, type: 3}
+  m_Sprite: {fileID: 1371410290732876926, guid: 9f26a18268d0545439b6050454062d78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -305,6 +305,7 @@ MonoBehaviour:
   playerSpeed: 3
   freezeMovement: 0
   _audioSource: {fileID: 2203164769507429893}
+  _particleSystem: {fileID: 7326757270021838630}
 --- !u!82 &1929028297537803435
 AudioSource:
   m_ObjectHideFlags: 0
@@ -409,7 +410,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825669290446103246}
   serializedVersion: 7
-  lengthInSec: 0.5
+  lengthInSec: 0.2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -474,7 +475,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -484,7 +485,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -537,7 +538,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.05
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -591,7 +592,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.8679245, g: 0.7572164, b: 0.6263795, a: 1}
+      maxColor: {r: 0.8113208, g: 0.64443916, b: 0.4477572, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5235,7 +5236,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f129c0cf270c374499665de2150b7011, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1.45
   Loop: 0
   Mute: 0

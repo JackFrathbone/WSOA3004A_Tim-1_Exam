@@ -23,8 +23,13 @@ public class InputMain : MonoBehaviour
 
     private Coroutine _currentCoroutine;
 
+    private AudioSource _audioSource;
+    public AudioClip waterPassSound;
+
     private void Start()
     {
+        _audioSource = GameObject.FindGameObjectWithTag("SoundPlayer").GetComponent<AudioSource>();
+
         _flowAmountLabel = GetComponentInChildren<TextMeshPro>();
         GetCurrentFlow();
     }
@@ -41,6 +46,11 @@ public class InputMain : MonoBehaviour
         //If flow is correct, then run the scripted event/or run an event if flow isnt correct ie open and close doors depending on machine state
         if (flowInput == flowRequired)
         {
+            if (!conditionMet)
+            {
+                _audioSource.PlayOneShot(waterPassSound);
+            }
+
             conditionMet = true;
 
             machineEventPass.Invoke();

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public bool freezeMovement;
 
     [SerializeField] AudioSource _audioSource;
+    [SerializeField] ParticleSystem _particleSystem;
 
     private void Start()
     {
@@ -70,5 +71,11 @@ public class PlayerController : MonoBehaviour
 
             Destroy(collision.gameObject);
         }
+    }
+
+    public void MovementEffect()
+    {
+        _audioSource.Play();
+        _particleSystem.Play();
     }
 }

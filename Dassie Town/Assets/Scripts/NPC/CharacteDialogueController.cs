@@ -14,8 +14,18 @@ public class CharacteDialogueController : MonoBehaviour
     [TextArea(3, 10)]
     public string greeting;
 
+    //Activates the guide entry if one is selected
+    [Header("Guide Entry")]
+    public CharacterGuideButton guideEntry;
+
     public void ActivateDialogue()
     {
+        //Turns on the character bio if one is added
+        if(guideEntry != null)
+        {
+            guideEntry.gameObject.SetActive(true);
+        }
+
         foreach (CharacterDialogue dialogue in dialogues)
         {
             if (dialogue.runOnce && !dialogue.hasRun || !dialogue.runOnce)

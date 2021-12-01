@@ -61,6 +61,7 @@ public class GameManager : Singleton<GameManager>
         gamePaused = true;
         playerController.freezeMovement = true;
         playerInput.disableInput = true;
+        Time.timeScale = 0;
     }
 
     public void UnPauseGame()
@@ -68,10 +69,12 @@ public class GameManager : Singleton<GameManager>
         gamePaused = false;
         playerController.freezeMovement = false;
         playerInput.disableInput = false;
+        Time.timeScale = 1;
     }
 
     public void LoadScene(int i)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(i);
     }
 

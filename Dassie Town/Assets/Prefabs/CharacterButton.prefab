@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5164799160857503160}
   - component: {fileID: 962942817168043465}
   - component: {fileID: 4381622742659459947}
+  - component: {fileID: 3924336494235276835}
   m_Layer: 5
   m_Name: CharacterButton
   m_TagString: Untagged
@@ -121,6 +122,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3924336494235276835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6509182999367205858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b0e7aada9fd390429d5817289144753, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  charName: 
+  charBio: 
 --- !u!1 &8199166222818814124
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,8 +228,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 32
-  m_fontSizeBase: 32
+  m_fontSize: 16
+  m_fontSizeBase: 16
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
