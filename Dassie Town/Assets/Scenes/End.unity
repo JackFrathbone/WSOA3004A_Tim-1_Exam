@@ -613,7 +613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4e55cf1bc2ed9b4da58be82900d024c, type: 2}
   m_sharedMaterial: {fileID: -6848502329803782046, guid: c4e55cf1bc2ed9b4da58be82900d024c, type: 2}
@@ -703,7 +703,7 @@ GameObject:
   - component: {fileID: 931244222}
   - component: {fileID: 931244221}
   m_Layer: 5
-  m_Name: ButtonExit
+  m_Name: ButtonMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -775,7 +775,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 933223086}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: ExitGame
+        m_MethodName: ToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
