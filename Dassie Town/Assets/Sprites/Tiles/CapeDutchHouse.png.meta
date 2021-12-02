@@ -23,6 +23,12 @@ TextureImporter:
   - first:
       213: 6914107849806895682
     second: CapeDutchHouse_6
+  - first:
+      213: -4947107075705052848
+    second: CapeDutchHouse_7
+  - first:
+      213: -5069279066253011755
+    second: CapeDutchHouse_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -220,8 +226,8 @@ TextureImporter:
       name: CapeDutchHouse_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 128
+        y: 64
         width: 64
         height: 64
       alignment: 9
@@ -241,7 +247,7 @@ TextureImporter:
       name: CapeDutchHouse_6
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 0
         width: 64
         height: 64
@@ -254,6 +260,48 @@ TextureImporter:
       bones: []
       spriteID: 24ada76f478d3ff50800000000000000
       internalID: 6914107849806895682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CapeDutchHouse_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05167c65358585bb0800000000000000
+      internalID: -4947107075705052848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CapeDutchHouse_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.25}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d45aa42c8d46a9b0800000000000000
+      internalID: -5069279066253011755
       vertices: []
       indices: 
       edges: []
