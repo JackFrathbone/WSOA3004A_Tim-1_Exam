@@ -101,18 +101,18 @@ public class GameManager : Singleton<GameManager>
                 if(inputPriority != null)
                 {
                     inputPriority.StartSignal();
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.8f);
                     inputPriority = null;
                 }
 
                 input.StartSignal();
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.8f);
             }
         }
 
         RefreshInputs();
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
     }
 
 }

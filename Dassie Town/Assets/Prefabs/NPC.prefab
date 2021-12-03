@@ -65,7 +65,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.3}
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.5
 --- !u!114 &5001444571136929969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,8 +81,7 @@ MonoBehaviour:
   characterName: 
   dialogues: []
   greeting: 
-  bio: 
-  characterGuideEntry: {fileID: 6509182999367205858, guid: e46616154391b4b4e9da9e4200cc6452, type: 3}
+  guideEntry: {fileID: 0}
 --- !u!1 &825669290446103246
 GameObject:
   m_ObjectHideFlags: 0
