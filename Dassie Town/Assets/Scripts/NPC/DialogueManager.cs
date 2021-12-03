@@ -28,7 +28,7 @@ public class DialogueManager : Singleton<DialogueManager>
         dialogueText.text = greeting;
         characterNameLabel.text = characterName;
 
-        GameManager.instance.PauseGame();
+        GameManager.instance.PauseGameDialogue();
     }
 
     public void StartDialogue(CharacterDialogue dialogue, string characterName)
@@ -40,7 +40,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
         dialogueText.text = currentDialogue.sentences[onDialogue];
 
-        GameManager.instance.PauseGame();
+        GameManager.instance.PauseGameDialogue();
     }
 
     public void NextDialogue()

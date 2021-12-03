@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject pauseMenu;
 
     private bool gamePaused;
+    public bool dialoguePause;
 
     private void Start()
     {
@@ -48,12 +49,23 @@ public class GameManager : Singleton<GameManager>
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!gamePaused)
+            if (!gamePaused && !dialoguePause)
             {
                 pauseMenu.SetActive(true);
                 PauseGame();
             }
+            else if(gamePaused && !dialoguePause)
+            {
+                pauseMenu.SetActive(false);
+                UnPauseGame();
+            }
         }
+    }
+
+    public void PauseGameDialogue()
+    {
+        PauseGame();
+        dialoguePause = true;
     }
 
     public void PauseGame()
@@ -70,6 +82,8 @@ public class GameManager : Singleton<GameManager>
         playerController.freezeMovement = false;
         playerInput.disableInput = false;
         Time.timeScale = 1;
+
+        dialoguePause = false;
     }
 
     public void LoadScene(int i)

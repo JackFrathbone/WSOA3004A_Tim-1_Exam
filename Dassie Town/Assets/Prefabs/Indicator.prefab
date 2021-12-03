@@ -99,7 +99,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '!'
+  m_text: :(
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 626aa28fe30016745a4ae92b95305bb7, type: 2}
   m_sharedMaterial: {fileID: -7917334334875062127, guid: 626aa28fe30016745a4ae92b95305bb7, type: 2}
@@ -229,3 +229,4 @@ MonoBehaviour:
   text: {fileID: 5851129115417975496}
   failColor: {r: 1, g: 0, b: 0, a: 1}
   passColor: {r: 0.040607214, g: 1, b: 0, a: 1}
+  inputsToCheckPass: []

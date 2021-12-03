@@ -34,7 +34,7 @@ public class IndicatorCheck : MonoBehaviour
 
     private void SetFail()
     {
-        text.text = "!";
+        text.text = ":(";
         text.color = failColor;
     }
 

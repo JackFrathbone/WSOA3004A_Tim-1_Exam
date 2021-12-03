@@ -12,12 +12,17 @@ public class PlayerController : MonoBehaviour
     public bool freezeMovement;
 
     [SerializeField] AudioSource _audioSource;
+    [SerializeField] AudioSource _audioSource2;
     [SerializeField] ParticleSystem _particleSystem;
+
+    [SerializeField] AudioClip _cratePickup;
 
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+
+        _audioSource2 = GameObject.FindGameObjectWithTag("SoundPlayer").GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -65,7 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == "Pickup")
         {
-            _audioSource.Play();
+            _audioSource2.PlayOneShot(_cratePickup);
 
             GetComponentInParent<PipeBuilder>().AddPipes(collision.GetComponent<Pickup>().addedPipes);
 

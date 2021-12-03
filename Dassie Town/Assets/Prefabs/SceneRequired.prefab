@@ -3115,6 +3115,7 @@ MonoBehaviour:
   playerController: {fileID: 3621517542339221118}
   playerInput: {fileID: 795483826538996550}
   pauseMenu: {fileID: 601681366494825067}
+  dialoguePause: 0
 --- !u!114 &4630850897290738232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5892,7 +5893,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
